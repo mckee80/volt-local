@@ -4,7 +4,7 @@ export const siteConfig = {
   shortName: 'Volt Local',
   tagline: 'Websites, SEO & GBP for Trades Businesses',
   description:
-    'Agency-level websites, local SEO, and Google Business Profile management for trades businesses — at a price that makes sense for small operators.',
+    'Custom websites, local SEO, and Google Business Profile management for trades businesses — personal service at a price that makes sense for small operators.',
 
   // URLs
   url: 'https://volt-local.com',
@@ -40,7 +40,7 @@ export const siteConfig = {
     titleTemplate: '%s | Volt Local',
     defaultTitle: 'Volt Local | Websites, SEO & GBP for Trades Businesses',
     defaultDescription:
-      'Agency-level websites, local SEO, and Google Business Profile management for trades businesses — at a price that makes sense for small operators.',
+      'Custom websites, local SEO, and Google Business Profile management for trades businesses — personal service at a price that makes sense for small operators.',
     defaultImage: '/images/og-image.jpg',
     keywords: [
       'HVAC website design',
@@ -98,8 +98,8 @@ export const siteConfig = {
       features: [
         'Monthly SEO review and optimization',
         'Google Business Profile management',
-        'Blog posts targeting customer search terms',
-        '5 website content updates per month',
+        'Monthly blog post targeting local search terms',
+        'Weekly Google Business Profile updates',
         'Monthly performance report',
         'Direct access — you talk to me, not a call center',
       ],
@@ -115,28 +115,16 @@ export const siteConfig = {
       icon: 'code',
     },
     {
-      name: 'Google Business Profile Management',
-      description:
-        'Your GBP is often the first thing customers see. I optimize your listing, post updates, manage reviews, and make sure your profile works as hard as you do.',
-      icon: 'map',
-    },
-    {
       name: 'Local SEO',
       description:
-        'Citation cleanup, local rank tracking, and technical optimization so your business shows up when people in your area search for the services you provide.',
+        'Citation cleanup, local rank tracking, technical optimization, and content that targets what your customers actually search for. Monthly blog posts, service pages, and a plain-English report showing what\'s working.',
       icon: 'search',
     },
     {
-      name: 'Content Strategy',
+      name: 'Google Business Profile Management',
       description:
-        'Blog posts and service pages that target what your customers actually search for — from "HVAC repair near me" to specific services like drain cleaning, panel upgrades, and furnace installation.',
-      icon: 'pencil',
-    },
-    {
-      name: 'Monthly Reporting',
-      description:
-        "Clear, plain-English monthly reports showing what's working, what's changed, and where we're headed. No jargon, no vanity metrics — just the numbers that matter.",
-      icon: 'chart',
+        'Your GBP is often the first thing customers see. I optimize your listing, post weekly updates, manage reviews, and make sure your profile works as hard as you do.',
+      icon: 'map',
     },
   ],
 };
