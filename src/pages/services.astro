@@ -1,0 +1,231 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/config/site';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Services"
+  description="Custom website builds, local SEO, Google Business Profile management, and content strategy for HVAC, plumbing, electrical, and other trades businesses."
+  breadcrumbs={[{ name: 'Services', url: '/services/' }]}
+>
+  <!-- Hero -->
+  <section class="relative pt-28 pb-16 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src={`${base}images/hero-services.jpg`} alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-brand-dark/70"></div>
+    </div>
+    <div class="container-max relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="section-label text-brand-accent">Services</span>
+        <h1 class="mb-4 text-white">What You Get</h1>
+        <p class="section-description text-white/80">
+          A custom website, ongoing SEO, and Google Business Profile management. Three things — no filler, no upsells.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Detail -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="max-w-4xl mx-auto space-y-12">
+        {siteConfig.services.map((service, index) => (
+          <div class={`flex flex-col md:flex-row gap-8 items-start ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+            <div class="flex-shrink-0 w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center">
+              <div class="w-8 h-8 text-brand-primary">
+                {service.icon === 'search' && (
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                )}
+                {service.icon === 'code' && (
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                )}
+                {service.icon === 'pencil' && (
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                )}
+                {service.icon === 'map' && (
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                )}
+                {service.icon === 'chart' && (
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                )}
+              </div>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-2xl mb-3">{service.name}</h2>
+              <p class="text-brand-dark-light text-lg leading-relaxed">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section-padding bg-surface-alt" id="pricing">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">Pricing</span>
+        <h2 class="section-title">Honest Pricing</h2>
+        <p class="section-description">
+          No hidden fees. No long-term contracts. No "packages" designed to extract more money. Two line items — that's it.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Setup -->
+        <div class="bg-white p-8 lg:p-10 rounded-2xl shadow-sm">
+          <div class="mb-6">
+            <h3 class="text-lg mb-1">{siteConfig.pricing.setup.name}</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-heading text-brand-primary">{siteConfig.pricing.setup.price}</span>
+              <span class="text-brand-dark-light text-sm">{siteConfig.pricing.setup.label}</span>
+            </div>
+          </div>
+          <p class="text-brand-dark-light mb-6">{siteConfig.pricing.setup.description}</p>
+          <ul class="space-y-3">
+            {siteConfig.pricing.setup.features.map((feature) => (
+              <li class="flex items-start gap-3 text-brand-dark-light">
+                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Monthly -->
+        <div class="bg-white p-8 lg:p-10 rounded-2xl shadow-sm border-2 border-brand-primary relative">
+          <div class="absolute -top-3 left-8 bg-brand-primary text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
+            Ongoing Growth
+          </div>
+          <div class="mb-6">
+            <h3 class="text-lg mb-1">{siteConfig.pricing.monthly.name}</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-heading text-brand-primary">{siteConfig.pricing.monthly.price}</span>
+              <span class="text-brand-dark-light text-sm">{siteConfig.pricing.monthly.label}</span>
+            </div>
+          </div>
+          <p class="text-brand-dark-light mb-6">{siteConfig.pricing.monthly.description}</p>
+          <ul class="space-y-3">
+            {siteConfig.pricing.monthly.features.map((feature) => (
+              <li class="flex items-start gap-3 text-brand-dark-light">
+                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Package Connector -->
+      <div class="max-w-2xl mx-auto mt-10 text-center bg-brand-primary/5 border border-brand-primary/20 rounded-xl p-6">
+        <p class="text-brand-dark text-base leading-relaxed mb-0">
+          <strong>These prices are low because I focus on trades and keep my overhead low.</strong> You're getting the same caliber of website and SEO that agencies charge $2K–$5K/month for. I just don't have the overhead they do.
+        </p>
+      </div>
+
+      <p class="text-center text-brand-dark-light text-sm mt-8 max-w-2xl mx-auto">
+        Most businesses start seeing measurable results around month three. No contracts — you stay because it's working.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        <details class="faq-item">
+          <summary>Can I hire you for just a website build?</summary>
+          <div class="faq-content">
+            <p>The website and monthly SEO/GBP management work best together. I build every site with SEO baked in — the structure, the content, the technical foundation. Then I optimize it month over month so your rankings keep climbing. The whole point is that these things work as a system.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>I already have a website. Can you just do SEO?</summary>
+          <div class="faq-content">
+            <p>I only work on sites I build. That way I control the entire stack — speed, structure, schema markup, content — and can move fast without waiting on another developer. The site and SEO strategy are built as one system.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Why are your prices so much lower than agencies?</summary>
+          <div class="faq-content">
+            <p>Because I don't have agency overhead. No office, no account managers, no layers of people between you and the work. I focus on one niche, I know it well, and I work efficiently. The savings go to you. The quality of work is the same — the business model is just different.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you do social media or run ads?</summary>
+          <div class="faq-content">
+            <p>No. I do three things: websites, SEO, and Google Business Profile management. That's it. I'd rather be great at three things than mediocre at ten. If you need social media or ad management, I'm not the right fit — but for getting found in local search, this is all you need.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens if I cancel?</summary>
+          <div class="faq-content">
+            <p>Your website is yours. The code, the content, the design — all of it. If you cancel, I hand everything over. You can host it yourself or have someone else maintain it. No lock-in. SEO optimization stops, and rankings will naturally drift over time without ongoing work, but your site stays live.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How long before I see results?</summary>
+          <div class="faq-content">
+            <p>Your new website goes live within a few weeks. SEO takes longer — most businesses start seeing meaningful movement in search rankings around month three, with results compounding from there. No contracts. You stay because it's working.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do I own my website?</summary>
+          <div class="faq-content">
+            <p>Yes. You own the code, the content, and the design. I keep a backup ready for you with standard instructions for getting it running. If you ever want to part ways, you take everything with you.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How involved do I need to be?</summary>
+          <div class="faq-content">
+            <p>As much or as little as you want. You'll get a plain-English report every month. Beyond that, some clients review content before it goes live, others prefer fully hands-off. Either works. The goal is to take something off your plate, not add to it.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="cta-section max-w-4xl mx-auto">
+        <h3 class="text-2xl md:text-3xl">Ready to Get Started?</h3>
+        <p class="text-lg max-w-xl mx-auto">
+          Quick conversation about your business. No pressure, no sales pitch — just figuring out if it's a fit.
+        </p>
+        <a href={`${base}contact/`} class="btn btn-primary bg-brand-accent border-brand-accent hover:bg-brand-accent-dark hover:border-brand-accent-dark">
+          Get a Free Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

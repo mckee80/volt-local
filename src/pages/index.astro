@@ -1,0 +1,171 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/config/site';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden min-h-[80vh] flex items-center pt-16">
+    <div class="absolute inset-0">
+      <img
+        src={`${base}images/hero-home.jpg`}
+        alt=""
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-brand-dark/70"></div>
+    </div>
+    <div class="container-max relative z-10 py-20">
+      <div class="max-w-2xl">
+        <span class="section-label text-brand-accent">Websites, SEO & GBP for Trades Businesses</span>
+        <h1 class="mb-6 text-white">
+          Agency-Level Service. Small Operator Price.
+        </h1>
+        <p class="text-lg text-white/80 mb-8 max-w-xl">
+          I build websites, manage SEO, and run Google Business Profiles for HVAC, plumbing, electrical, and other trades businesses. No ads, no social media, no filler — just the three things that actually get you found online.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={`${base}contact/`} class="btn btn-primary btn-lg">
+            Get a Free Consultation
+          </a>
+          <a href={`${base}services/`} class="btn bg-transparent text-white border-white hover:bg-white hover:text-brand-primary btn-lg">
+            See How It Works
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="section-padding bg-surface-alt" id="services">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">What I Do</span>
+        <h2 class="section-title">Three Things. Done Right.</h2>
+        <p class="section-description">
+          Websites, SEO, and Google Business Profile management. I don't do social media. I don't run ads. I focus on what actually moves the needle for trades businesses, and I do it well.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {siteConfig.services.map((service) => (
+          <div class="service-card">
+            <div class="service-icon">
+              {service.icon === 'search' && (
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              )}
+              {service.icon === 'code' && (
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              )}
+              {service.icon === 'pencil' && (
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+              )}
+              {service.icon === 'map' && (
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              )}
+              {service.icon === 'chart' && (
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              )}
+            </div>
+            <h3>{service.name}</h3>
+            <p>{service.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-12">
+        <a href={`${base}services/`} class="btn btn-outline">
+          Learn More About Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Volt Local -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="section-label">Why Volt Local</span>
+          <h2 class="section-title">Small Operator Helping Small Operators</h2>
+          <p class="section-description max-w-2xl mx-auto">
+            Most agencies charge a premium because they have overhead — account managers, office space, layers of people between you and the work. I don't. I keep my focus narrow, my overhead low, and pass those savings to you. You get the personal attention of an agency at a price closer to the high-volume SEO shops.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-sm">
+            <div class="w-10 h-10 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg mb-2">I Know Your Industry</h3>
+            <p class="text-brand-dark-light">"AC repair near me," "emergency plumber," "licensed electrician" — I already know the keywords that drive calls. No ramp-up time, no explaining your business to a generalist agency.</p>
+          </div>
+
+          <div class="bg-white p-8 rounded-2xl shadow-sm">
+            <div class="w-10 h-10 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-lg mb-2">No Packages. No Upsells.</h3>
+            <p class="text-brand-dark-light">Website build, SEO, GBP management. That's the whole list. I don't tack on social media packages, ad management, or anything else to pad the bill. You know exactly what you're paying for.</p>
+          </div>
+
+          <div class="bg-white p-8 rounded-2xl shadow-sm">
+            <div class="w-10 h-10 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg mb-2">High Touch. One Person.</h3>
+            <p class="text-brand-dark-light">You deal with me directly. I learn your business, your service area, your competition. No account managers, no handoffs, no ticket queues. You email, I respond.</p>
+          </div>
+
+          <div class="bg-white p-8 rounded-2xl shadow-sm">
+            <div class="w-10 h-10 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg mb-2">Compete With the Big Spenders</h3>
+            <p class="text-brand-dark-light">The companies outranking you are spending thousands a month on agencies. My focus and low overhead mean you can compete with them at a fraction of the cost.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="cta-section max-w-4xl mx-auto">
+        <h3 class="text-2xl md:text-3xl">Your Competitors Are Already Online</h3>
+        <p class="text-lg max-w-xl mx-auto">
+          The businesses outranking you right now aren't necessarily better — they just showed up first. Let's fix that.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href={`${base}contact/`} class="btn btn-primary bg-brand-accent border-brand-accent hover:bg-brand-accent-dark hover:border-brand-accent-dark">
+            Get Started
+          </a>
+          <a href={`${base}services/`} class="btn bg-transparent text-white border-white hover:bg-white hover:text-brand-primary">
+            View Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
