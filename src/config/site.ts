@@ -101,7 +101,7 @@ export const siteConfig = {
         'Monthly blog post targeting local search terms',
         'Weekly Google Business Profile updates',
         'Monthly performance report',
-        'Direct access — you talk to me, not a call center',
+        'Direct access — no call centers, no ticket queues',
       ],
     },
   },
